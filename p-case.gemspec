@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require_relative "lib/p/case/version"
+require_relative "lib/pico/case/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "p-case"
-  spec.version       = P::Case::VERSION
+  spec.version       = Pico::Case::VERSION
   spec.authors       = ["Tomás Coêlho"]
   spec.email         = ["tomascoelho6@gmail.com"]
 

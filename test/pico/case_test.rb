@@ -2,7 +2,7 @@
 
 require "test_helper"
 
-class P::CaseTest < Minitest::Test
+class Pico::CaseTest < Minitest::Test
   def test_that_it_has_a_version_number
     refute_nil ::P::Case::VERSION
   end

@@ -2,7 +2,7 @@
 
 require_relative "case/version"
 
-module P
+module Pico
   module Case
     class Error < StandardError; end
     # Your code goes here...

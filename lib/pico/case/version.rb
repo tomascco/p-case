@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module P
+module Pico
   module Case
     VERSION = "0.1.0"
   end
