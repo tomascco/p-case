@@ -1,5 +1,7 @@
 AllCops:
-  TargetRubyVersion: 2.4
+  TargetRubyVersion: 3.1
+  NewCops: enable
+
 
 Style/StringLiterals:
   Enabled: true
@@ -10,4 +12,15 @@ Style/StringLiteralsInInterpolation:
   EnforcedStyle: double_quotes
 
 Layout/LineLength:
-  Max: 120
+  Max: 100
+Layout/SpaceInsideHashLiteralBraces:
+  Enabled: false
+Layout/ArgumentAlignment:
+  EnforcedStyle: with_fixed_indentation
+Layout/FirstArrayElementIndentation:
+  EnforcedStyle: consistent
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+Layout/ArrayAlignment:
+  Enabled: false
+
