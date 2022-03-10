@@ -7,13 +7,17 @@ module Pico
     class Error < StandardError; end
 
     class Result
-      attr_reader :type, :data
+      attr_reader :data
 
       def self.Success(**data)
+        raise ArgumentError if data.empty?
+
         new(:success, data)
       end
 
       def self.Failure(**data)
+        raise ArgumentError if data.empty?
+
         new(:failure, data)
       end
 
@@ -41,7 +45,11 @@ module Pico
         block_result
       end
 
+      private_class_method :new
+
       private
+
+      attr_reader :type
 
       def respond_to_missing?(name, include_private = false)
         @data.respond_to?(name, include_private)
