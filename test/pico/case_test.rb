@@ -2,12 +2,17 @@
 
 require "test_helper"
 
-class Pico::CaseTest < Minitest::Test
-  def test_that_it_has_a_version_number
-    refute_nil ::P::Case::VERSION
-  end
+module Pico
+  class CaseTest < Minitest::Test
+    def test_pcase_creation_with_new
+      # Arrange & Act
+      pcase = nil
+      Case::Result.stub(:Success, :pcase) do
+        pcase = Case.new(number: 5)
+      end
 
-  def test_it_does_something_useful
-    assert false
+      # Assert
+      assert_equal(:pcase, pcase)
+    end
   end
 end
