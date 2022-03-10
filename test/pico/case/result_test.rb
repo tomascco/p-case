@@ -88,5 +88,17 @@ module Pico::Case
         pcase.then { :not_an_result }
       end
     end
+
+    def test_method_missing_redirection_to_data
+      # Arrange
+      pcase = Result::Success(number: 1, letter: 'a')
+
+      # Act & Assert
+      assert_respond_to(pcase, :[])
+      assert_equal(1, pcase[:number])
+
+      assert_respond_to(pcase, :values_at)
+      assert_equal([1, 'a'], pcase.values_at(:number, :letter))
+    end
   end
 end
