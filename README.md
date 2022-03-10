@@ -1,5 +1,9 @@
 # p-case
 
+[![Test Coverage](https://api.codeclimate.com/v1/badges/c5ac1041022f23c737fd/test_coverage)](https://codeclimate.com/github/tomascco/p-case/test_coverage)
+
+[![Maintainability](https://api.codeclimate.com/v1/badges/c5ac1041022f23c737fd/maintainability)](https://codeclimate.com/github/tomascco/p-case/maintainability)
+
 Inspired on [u-case](https://github.com/serradura/u-case), made for learning purposes.
 
 ## Installation
