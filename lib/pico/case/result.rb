@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Pico::Case
   class Result
     attr_reader :data
