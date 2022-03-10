@@ -4,6 +4,7 @@ require "test_helper"
 
 module Pico::Case
   class ResultTest < Minitest::Test
+    # rubocop:disable Naming/MethodName
     def test_Success
       # Arrange
       pcase = Result::Success(number: 5)
@@ -41,6 +42,7 @@ module Pico::Case
       # FACT: no keyword arguments raises an argument error
       assert_raises(ArgumentError) { Result::Failure() }
     end
+    # rubocop:enable Naming/MethodName
 
     def test_then_accumulation_on_success
       # Arrange
@@ -55,7 +57,6 @@ module Pico::Case
       assert_kind_of(Result, result)
       assert_predicate(result, :success?)
       assert_equal(3, result[:number])
-
     end
 
     def test_then_accumulation_on_failure
@@ -65,7 +66,6 @@ module Pico::Case
       # Act
       result = pcase
         .then { |number:| Failure(number: number + 1) }
-        .then { |number:| Success(number: number + 1) }
         .then { |number:| Success(number: number + 1) }
         .then { |number:| Failure(number: number + 1) }
 
@@ -91,14 +91,14 @@ module Pico::Case
 
     def test_method_missing_redirection_to_data
       # Arrange
-      pcase = Result::Success(number: 1, letter: 'a')
+      pcase = Result::Success(number: 1, letter: "a")
 
       # Act & Assert
       assert_respond_to(pcase, :[])
       assert_equal(1, pcase[:number])
 
       assert_respond_to(pcase, :values_at)
-      assert_equal([1, 'a'], pcase.values_at(:number, :letter))
+      assert_equal([1, "a"], pcase.values_at(:number, :letter))
     end
   end
 end

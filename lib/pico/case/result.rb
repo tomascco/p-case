@@ -4,6 +4,7 @@ module Pico::Case
   class Result
     attr_reader :data
 
+    # rubocop:disable Naming/MethodName
     def self.Success(**data)
       raise ArgumentError if data.empty?
 
@@ -15,6 +16,7 @@ module Pico::Case
 
       new(:failure, data)
     end
+    # rubocop:enable Naming/MethodName
 
     def initialize(type, data)
       @type = type
