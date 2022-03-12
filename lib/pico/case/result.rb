@@ -42,6 +42,18 @@ module Pico::Case
       block_result
     end
 
+    def on_success
+      yield(**data) if block_given? && success?
+
+      self
+    end
+
+    def on_failure
+      yield(**data) if block_given? && failure?
+
+      self
+    end
+
     private_class_method :new
 
     private

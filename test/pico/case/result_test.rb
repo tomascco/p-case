@@ -100,5 +100,37 @@ module Pico::Case
       assert_respond_to(pcase, :values_at)
       assert_equal([1, "a"], pcase.values_at(:number, :letter))
     end
+
+    def test_on_success
+      # Arrange
+      pcase = Result::Success(number: 1, letter: "a")
+      count = 0
+
+      # Act
+      result = pcase
+        .on_success { count += 1 }
+        .on_failure { count += 1 }
+        .on_success { count += 1 }
+
+      # Assert
+      assert_equal(2, count)
+      assert_equal(pcase, result)
+    end
+
+    def test_on_failure
+      # Arrange
+      pcase = Result::Failure(number: 1, letter: "a")
+      count = 0
+
+      # Act
+      result = pcase
+        .on_failure { count += 1 }
+        .on_success { count += 1 }
+        .on_failure { count += 1 }
+
+      # Assert
+      assert_equal(2, count)
+      assert_equal(pcase, result)
+    end
   end
 end
